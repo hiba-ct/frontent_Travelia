@@ -5,7 +5,7 @@ import TrustedTravelSection from "../components/home/TrustedTravelSection.jsx";
 import RecommendedTripsSection from "../components/home/RecommendedTripsSection.jsx";
 import WhyChooseSection from "../components/home/WhyChooseSection.jsx";
 import TestimonialSection from "../components/home/TestimonialSection.jsx";
-import SpecialOfferSection from "../components/home/pecialOfferSection.jsx";
+import SpecialOfferSection from "../components/home/SpecialOfferSection.jsx";
 import NewsletterSection from "../components/home/NewsletterSection.jsx";
 import FeaturedDestinations from "../components/home/Featureddestinations.jsx";
 import Footer from "../components/home/Footer.jsx";
