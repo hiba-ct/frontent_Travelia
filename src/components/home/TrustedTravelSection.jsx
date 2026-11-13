@@ -7,7 +7,7 @@ import traveler from "../../assets/images/trusted-travel/traveler.webp";
 import travelCollage from "../../assets/images/trusted-travel/travel-collage.webp";
 import iconAgency from "../../assets/images/trusted-travel/icon-agency.webp";
 import iconVisa from "../../assets/images/trusted-travel/icon-visa.webp";
-import cloud from "../../assets/images/hero/cloud.svg";
+import cloud from "../../assets/images/hero/cloud.webp";
 
 import "../../assets/styles/trusted-travel.css";
 
@@ -99,7 +99,7 @@ export default function TrustedTravelSection() {
       <div className="tt-right">
         <img src={travelCollage} alt="Suitcase and straw hat with famous world landmarks" />
       </div>
-      <img className="tt-cloud" src={cloud} alt="" aria-hidden="true" />
+      <img className="tt-cloud" src={cloud} alt="" aria-hidden="false" />
     </section>
   );
 }
