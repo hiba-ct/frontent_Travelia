@@ -1,0 +1,19 @@
+// Brand colours
+$primary: #ffd60a;   // yellow buttons
+$dark:    #0b1a17;   // dark hero background
+$accent:  #ff6a2b;   // orange text and grid button
+$blue:    #3b5bfd;   // active tab
+
+$theme-colors: (
+  "primary": $primary,
+  "dark": $dark,
+  "accent": $accent,
+  "blue": $blue
+);
+
+// Fonts
+$font-family-sans-serif: "Poppins", sans-serif;
+$headings-font-family: "Playfair Display", serif;
+
+// Load Bootstrap after our variables
+@import "bootstrap/scss/bootstrap";

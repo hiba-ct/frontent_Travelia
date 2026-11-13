@@ -1,0 +1,349 @@
+
+/* =====================================
+   RECOMMENDED TRIPS SECTION
+===================================== */
+
+.recommended-trips-section {
+  position: relative;
+  background: #ffffff;
+  padding: 95px 0 85px;
+  overflow: hidden;
+}
+
+.recommended-trips-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+}
+
+/* =====================================
+   SECTION HEADING
+===================================== */
+
+.recommended-trips-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.recommended-trips-subtitle {
+  display: block;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #f07845;
+  margin-bottom: 7px;
+}
+
+.recommended-trips-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #171717;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* =====================================
+   GRID
+===================================== */
+
+.recommended-trips-grid {
+  row-gap: 18px;
+}
+
+.recommended-trip-column {
+  display: flex;
+}
+
+/* =====================================
+   TRIP CARD
+===================================== */
+
+.recommended-trip-card {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.recommended-trip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+/* =====================================
+   IMAGE
+===================================== */
+
+.recommended-trip-image-link {
+  display: block;
+  text-decoration: none;
+}
+
+.recommended-trip-image {
+  width: 100%;
+  height: 205px;
+  overflow: hidden;
+}
+
+.recommended-trip-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.recommended-trip-card:hover
+.recommended-trip-image img {
+  transform: scale(1.07);
+}
+
+/* =====================================
+   CARD CONTENT
+===================================== */
+
+.recommended-trip-content {
+  padding: 15px 16px 14px;
+}
+
+.recommended-trip-name {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #252525;
+  text-decoration: none;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.recommended-trip-name:hover {
+  color: #e99b26;
+}
+
+.recommended-trip-location {
+  font-size: 10px;
+  color: #777777;
+  margin: 0 0 9px;
+}
+
+.recommended-trip-divider {
+  width: 100%;
+  height: 1px;
+  background: #e2e2e2;
+  margin: 9px 0;
+}
+
+/* =====================================
+   DAYS / NIGHTS / COUNTRY
+===================================== */
+
+.recommended-trip-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.recommended-trip-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #626262;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.recommended-trip-info i {
+  font-size: 10px;
+  color: #343434;
+}
+
+/* =====================================
+   PRICE AND VIEW BUTTON
+===================================== */
+
+.recommended-trip-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+
+.recommended-trip-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recommended-trip-price small {
+  color: #858585;
+  font-size: 9px;
+}
+
+.recommended-trip-price strong {
+  color: #222222;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.recommended-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 66px;
+  padding: 7px 12px;
+  background: #e9e9e9;
+  border-radius: 30px;
+  color: #222222;
+  font-size: 9px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.recommended-view-btn:hover {
+  background: #ffd60a;
+  color: #111111;
+}
+
+/* =====================================
+   BOTTOM BUTTON
+===================================== */
+
+.recommended-trips-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* =====================================
+   DECORATIVE FLIGHT PATH
+===================================== */
+
+.trips-flight-path {
+  position: absolute;
+  width: 600px;
+  height: 250px;
+  top: -50px;
+  left: -60px;
+  border: 1px dashed #dcdcdc;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flight-plane {
+  position: absolute;
+  color: #ffd60a;
+  font-size: 16px;
+}
+
+.flight-plane-one {
+  top: 60px;
+  right: 20%;
+  transform: rotate(25deg);
+}
+
+.flight-plane-two {
+  bottom: -4px;
+  left: 20%;
+  transform: rotate(70deg);
+}
+
+/* =====================================
+   LARGE SCREENS
+===================================== */
+
+@media (min-width: 1400px) {
+  .recommended-trips-container {
+    max-width: 1140px;
+  }
+
+  .recommended-trip-image {
+    height: 215px;
+  }
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 991px) {
+  .recommended-trips-section {
+    padding: 75px 0;
+  }
+
+  .recommended-trip-image {
+    height: 190px;
+  }
+
+  .recommended-trip-info span {
+    font-size: 9px;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 576px) {
+  .recommended-trips-section {
+    padding: 55px 0;
+  }
+
+  .recommended-trips-heading {
+    margin-bottom: 28px;
+    padding: 0 10px;
+  }
+
+  .recommended-trips-heading h2 {
+    font-size: 26px;
+  }
+
+  .recommended-trip-column {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .recommended-trip-image {
+    height: 220px;
+  }
+
+  .recommended-trip-content {
+    padding: 15px;
+  }
+
+  .recommended-trip-name {
+    font-size: 15px;
+  }
+
+  .recommended-trip-info span {
+    font-size: 10px;
+  }
+
+  .recommended-trips-button {
+    margin-top: 25px;
+  }
+
+  .trips-flight-path {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recommended-trip-card,
+  .recommended-trip-image img,
+  .recommended-view-btn,
+  .recommended-trip-name {
+    transition: none;
+  }
+}

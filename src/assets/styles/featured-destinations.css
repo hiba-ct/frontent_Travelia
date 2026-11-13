@@ -1,0 +1,146 @@
+.fd {
+  position: relative;
+  overflow: hidden;
+  padding-top: 90px;
+  background: #fbf4ea;
+}
+
+/* Hiker photo. On desktop it stays fixed while you scroll (parallax). */
+.fd__bg {
+  position: absolute;
+  inset: 0 0 60px 0;
+  background-size: cover;
+  background-position: center 30%;
+}
+@media (min-width: 992px) { .fd__bg { background-attachment: fixed; } }
+
+/* Light fade so the dark text is easy to read on the photo */
+.fd__fade {
+  position: absolute;
+  inset: 0 0 60px 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 22%);
+}
+.fd__edge {
+  position: absolute; left: 0; bottom: 0;
+  width: 100%; height: auto; min-height: 80px; pointer-events: none;
+}
+
+.fd__inner {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 43% minmax(0, 1fr);
+  padding-bottom: 150px;
+}
+
+/* ---------- Left text ---------- */
+.fd__text { padding: 30px 2rem 0 clamp(24px, 6vw, 140px); }
+.fd__eyebrow {
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif; font-style: italic;
+  font-size: 0.95rem; color: #d9531e;
+}
+.fd__text h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem); font-weight: 700; line-height: 1.15; color: #111;
+}
+.fd__text h2 em { font-style: italic; font-weight: 400; color: #7d848a; }
+.fd__lead { max-width: 360px; margin: 1rem 0 1.6rem; font-size: 0.85rem; line-height: 1.6; color: #222; }
+
+/* ---------- Frosted glass panel (runs off the right edge) ---------- */
+.fd__panel {
+  min-width: 0;
+  padding: 16px 0 16px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 0;
+  border-radius: 28px 0 0 28px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  box-shadow: 0 20px 50px rgba(20, 40, 60, 0.18);
+}
+
+/* ---------- Draggable row ---------- */
+.fd-track {
+  display: flex; gap: 10px; padding-right: 16px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scrollbar-width: none; cursor: grab;
+  user-select: none; -webkit-user-select: none;
+}
+.fd-track::-webkit-scrollbar { display: none; }
+.fd-track.is-dragging { cursor: grabbing; }
+.fd-track:focus-visible { outline: 2px solid #ffd60a; outline-offset: 2px; }
+
+.fd-col {
+  --w: clamp(150px, 17vw, 300px);
+  display: flex; flex-direction: column; gap: 10px;
+  flex: 0 0 var(--w); width: var(--w);
+}
+.fd-card {
+  position: relative; display: block; overflow: hidden;
+  border-radius: 16px; color: inherit; text-decoration: none;
+}
+.fd-col--pair .fd-card { aspect-ratio: 108 / 100; }   /* two small cards */
+.fd-col--tall .fd-card { flex: 1; min-height: 200px; } /* one tall card, same height as a pair */
+
+.fd-card img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fd-card:hover img { transform: scale(1.07); }
+
+.fd-label {
+  position: absolute; left: 10px; right: 10px; bottom: 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.55rem 0.8rem; border-radius: 8px;
+  background: #fff; color: #111;
+  font-family: "Playfair Display", serif; font-size: 0.82rem;
+  transition: background 0.3s, color 0.3s;
+}
+.fd-label i { font-size: 0.7rem; transition: transform 0.3s; }
+.fd-card:hover .fd-label, .fd-card:focus-visible .fd-label { background: #e8591a; color: #fff; }
+.fd-card:hover .fd-label i { transform: translateX(4px); }
+
+/* ---------- Yellow DRAG bubble ---------- */
+.fd-cursor {
+  position: fixed; left: 0; top: 0; z-index: 950;
+  width: 58px; height: 58px; display: grid; place-items: center;
+  border-radius: 50%; background: #ffd60a; color: #111;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em;
+  pointer-events: none; opacity: 0; scale: 0.4;
+  transition: opacity 0.2s, scale 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fd-cursor.is-active { opacity: 1; scale: 1; }
+.fd-cursor.is-down { scale: 0.82; }
+@media (hover: none) { .fd-cursor { display: none; } }
+
+/* ---------- Entrance animations (play once when the section is seen) ---------- */
+.fd__text > *, .fd__panel, .fd-col { opacity: 0; }
+
+@keyframes fd-rise  { from { opacity: 0; translate: 0 36px; }   to { opacity: 1; translate: 0 0; } }
+@keyframes fd-slide { from { opacity: 0; translate: 140px 0; }  to { opacity: 1; translate: 0 0; } }
+
+.fd.is-visible .fd__text > * { animation: fd-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.fd.is-visible .fd__text > :nth-child(1) { animation-delay: 0.05s; }
+.fd.is-visible .fd__text > :nth-child(2) { animation-delay: 0.15s; }
+.fd.is-visible .fd__text > :nth-child(3) { animation-delay: 0.25s; }
+.fd.is-visible .fd__text > :nth-child(4) { animation-delay: 0.35s; }
+.fd.is-visible .fd__panel { animation: fd-slide 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
+.fd.is-visible .fd-col {
+  animation: fd-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(0.5s + var(--i) * 0.1s);
+}
+
+/* ---------- Tablet and phone ---------- */
+@media (max-width: 991.98px) {
+  .fd__inner { grid-template-columns: 1fr; padding-bottom: 130px; }
+  .fd__text { padding: 10px 1.5rem 2rem; }
+  .fd__panel { margin-left: 16px; }
+  .fd__fade { background: linear-gradient(180deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,.35) 45%, rgba(255,255,255,0) 70%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fd__text > *, .fd__panel, .fd-col { opacity: 1; animation: none !important; }
+  .fd-card img, .fd-cursor { transition: none; }
+}

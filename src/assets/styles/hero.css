@@ -1,0 +1,231 @@
+/* ================= HEADER =================
+   ".navbar.travlia-header" is more specific than Bootstrap's ".navbar",
+   so position:absolute always wins and the header floats over the hero. */
+.navbar.travlia-header {
+  --bs-navbar-color: #fff;
+  --bs-navbar-hover-color: #ffd60a;
+  --bs-navbar-active-color: #ffd60a;
+  --bs-dropdown-bg: #10231f;
+  --bs-dropdown-link-color: #fff;
+  --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.08);
+  --bs-dropdown-link-hover-color: #ffd60a;
+  --bs-dropdown-link-active-bg: transparent;
+  --bs-dropdown-link-active-color: #ffd60a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 0.9rem 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.travlia-header .nav-link { font-size: 0.85rem; font-weight: 500; padding: 0.5rem 0.85rem; }
+.travlia-header .dropdown-toggle::after { font-size: 0.7em; vertical-align: 0.15em; }
+.travlia-header .dropdown-menu { border: 0; font-size: 0.85rem; border-radius: 10px; padding: 0.5rem; }
+.travlia-header .dropdown-item { border-radius: 6px; }
+
+@media (min-width: 992px) {
+  .travlia-header .dropdown:hover > .dropdown-menu { display: block; margin-top: 0; }
+}
+@media (max-width: 991.98px) {
+  .travlia-header .navbar-collapse {
+    margin-top: 0.75rem; padding: 1rem;
+    background: rgba(8, 20, 17, 0.96); border-radius: 12px;
+  }
+}
+
+.header-search { position: relative; }
+.header-search .form-control {
+  width: 125px; padding: 0.3rem 1.9rem 0.3rem 0.95rem;
+  font-size: 0.75rem; color: #fff; background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px; box-shadow: none;
+}
+.header-search .form-control:focus { border-color: #ffd60a; }
+.header-search .form-control::placeholder { color: rgba(255, 255, 255, 0.75); }
+.header-search .bi-search {
+  position: absolute; right: 0.75rem; top: 50%;
+  transform: translateY(-50%); color: #fff; font-size: 0.7rem; pointer-events: none;
+}
+.grid-btn {
+  width: 38px; height: 38px; border: 0; border-radius: 50%;
+  background: #ff6a2b; color: #fff; display: grid; place-items: center;
+  transition: transform 0.2s;
+}
+.grid-btn:hover { transform: rotate(90deg); }
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 160px 0 210px;
+  color: #fff;
+  overflow: hidden;
+  background: #071512 url("../images/hero/hero-bg.svg") center / cover no-repeat;
+}
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s; }
+.hero-video.is-ready { opacity: 1; }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(4, 12, 10, 0.7) 0%, rgba(4, 12, 10, 0.25) 60%, rgba(4, 12, 10, 0.1) 100%);
+}
+.hero-content { position: relative; z-index: 3; }
+.hero-text { position: relative; z-index: 6; }
+
+.hero-welcome {
+  font-family: "Playfair Display", serif; font-style: italic;
+  font-size: 0.95rem; color: #ff6a2b; margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-size: clamp(2.3rem, 4.4vw, 3.4rem); font-weight: 700;
+  line-height: 1.1; max-width: 580px;
+}
+.hero h1 em { color: #ffd60a; font-style: italic; font-weight: 500; }
+.hero-lead { max-width: 440px; font-size: 0.92rem; line-height: 1.6; margin: 1rem 0 1.6rem; }
+.hero-actions { margin-bottom: 3.8rem; }
+.round-arrow {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #10110f; color: #ffd60a; display: grid; place-items: center; font-size: 0.75rem;
+}
+
+/* ================= BOOKING CARD ================= */
+.booking { position: relative; max-width: 660px; padding-top: 22px; }
+.booking-tabs {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 4px; padding: 4px; z-index: 2; border-radius: 999px;
+  background: rgba(28, 36, 34, 0.82); backdrop-filter: blur(6px);
+}
+.booking-tab {
+  display: flex; align-items: center; gap: 0.35rem; border: 0; background: transparent;
+  color: #fff; padding: 0.35rem 0.9rem; border-radius: 999px;
+  font-size: 0.74rem; font-weight: 500; transition: background 0.25s;
+}
+.booking-tab.active { background: #3b5bfd; }
+
+.booking-card {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0;
+  padding: 2rem 1rem 1.1rem; background: #fff; color: #111; border-radius: 12px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 992px) {
+  .booking-card { flex-wrap: nowrap; }
+  .booking-card.is-many { flex-wrap: wrap; }
+}
+.booking-field { flex: 1 1 0; min-width: 96px; padding: 0 0.7rem; border-left: 1px solid #e6e6e6; }
+.booking-field:first-child { border-left: 0; }
+.booking-field label { display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 0.2rem; }
+.booking-field .form-control,
+.booking-field .form-select {
+  width: 100%; min-width: 0; padding: 0; font-size: 0.76rem; color: #888;
+  background-color: transparent; border: 0; box-shadow: none;
+}
+.booking-field .form-select { background-image: none; }
+.booking-field input[type="date"]::-webkit-calendar-picker-indicator { width: 12px; padding: 0; opacity: 0.5; }
+.booking-counter { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; }
+.booking-counter button {
+  width: 16px; height: 16px; padding: 0; border: 0; border-radius: 50%;
+  background: #111; color: #fff; display: grid; place-items: center; font-size: 0.8rem; line-height: 1;
+}
+.booking-submit { flex: 0 0 auto; margin-left: 0.7rem; font-size: 0.78rem; border-radius: 4px; white-space: nowrap; }
+
+/* ================= RIGHT SIDE PICTURES ================= */
+.hero-visual { position: relative; height: 440px; margin-top: 3rem; }
+.hv { position: absolute; height: auto; }
+
+/* Tweak these percentages if you want to move a picture */
+.hv-traveller { left: 0;   top: 8%;  width: 62%; z-index: 4; }
+.hv-card      { border: 5px solid #fff; border-radius: 14px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+.hv-card-1    { left: 36%; top: 6%;  width: 38%; z-index: 1; }
+.hv-card-2    { left: 41%; top: 62%; width: 24%; z-index: 2; }
+.hv-card-3    { left: 66%; top: 60%; width: 33%; z-index: 3; }
+.hv-airplane  { left: 46%; top: -8%; width: 46%; z-index: 5; }
+.hv-cloud-1   { right: -2%; top: 4%; width: 26%; z-index: 2; }
+.hv-cloud-2   { left: 56%;  top: 34%; width: 15%; z-index: 5; }
+
+@media (min-width: 992px) {
+  .hero-visual {
+    position: absolute; top: 50%; right: -6%;
+    width: 56%; height: 520px; margin: 0; transform: translateY(-55%);
+  }
+}
+
+/* Dotted paper plane (left) and torn white edge (bottom) */
+.hero-paper-plane { position: absolute; left: 3%; top: 24%; width: 120px; z-index: 3; }
+.hero-brush {
+  position: absolute; left: 0; bottom: -1px; width: 100%; height: auto;
+  min-height: 90px; z-index: 7; pointer-events: none;
+}
+
+/* ================= ANIMATIONS ================= */
+/* 1) One entrance when the page loads. "translate" is used so it never
+      clashes with the "transform" used by the floating loops below. */
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 34px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; translate: 160px 0; }
+  to   { opacity: 1; translate: 0 0; }
+}
+@keyframes fly-in {
+  from { opacity: 0; translate: 240px -30px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+/* 2) Endless gentle loops */
+@keyframes card-float {
+  0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); }
+  50%      { transform: rotate(var(--r, 0deg)) translateY(-9px); }
+}
+@keyframes plane-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(18px, -16px) rotate(3deg); }
+}
+@keyframes drift-x {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(22px); }
+}
+@keyframes paper-wobble {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(12px, -9px) rotate(5deg); }
+}
+@keyframes person-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.hv { animation: slide-in-right 1s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0s) both; }
+.hv-card { transform: rotate(var(--r, 0deg)); animation: slide-in-right 1s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d) both, card-float 6s ease-in-out calc(var(--d) + 1s) infinite; }
+.hv-traveller { animation: slide-in-right 1s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d) both, person-bob 5s ease-in-out calc(var(--d) + 1s) infinite; }
+.hv-cloud { animation: slide-in-right 1.3s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d) both, drift-x 8s ease-in-out calc(var(--d) + 1.3s) infinite; }
+.hv-airplane { animation: fly-in 1.4s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both, plane-float 5s ease-in-out 2s infinite; }
+.hero-paper-plane { animation: paper-wobble 4s ease-in-out infinite; }
+
+.hero-text > * { animation: rise-in 0.8s both; }
+.hero-text > :nth-child(1) { animation-delay: 0.05s; }
+.hero-text > :nth-child(2) { animation-delay: 0.15s; }
+.hero-text > :nth-child(3) { animation-delay: 0.25s; }
+.hero-text > :nth-child(4) { animation-delay: 0.35s; }
+.hero-text > :nth-child(5) { animation-delay: 0.45s; }
+/* ===== Match the template: plane, cloud, dark layer, paper plane ===== */
+
+/* 1) Darker, even layer over the video, so the cloud reads as grey smoke */
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(3, 9, 8, 0.78) 0%, rgba(3, 9, 8, 0.6) 55%, rgba(3, 9, 8, 0.5) 100%);
+}
+
+/* 2) Plane: bigger, lower and to the right, over the top of the pier card */
+.hv-airplane { left: 40%; top: -10%; width: 55%; z-index: 3; }
+
+/* 3) One big cloud behind the plane (the small second cloud is hidden) */
+.hv-cloud-1 { left: 60%; top: -10%; width: 50%; z-index: 5; }
+.hv-cloud-2 { display: none; }
+
+/* 4) Dotted paper plane: bigger, from the left edge, level with the paragraph */
+.hero-paper-plane { left: 0; top: 35%; width: clamp(150px, 10vw, 220px); }
+@media (max-width: 991.98px) { .hero-paper-plane { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .hv, .hv-card, .hv-traveller, .hv-cloud, .hv-airplane, .hero-paper-plane, .hero-text > * {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,258 @@
+
+/* MAIN SECTION */
+
+.travel-planning-section {
+  width: 100%;
+  padding: 100px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.planning-content {
+  max-width: 850px;
+}
+
+.planning-subtitle {
+  display: inline-block;
+  color: #f07845;
+  font-size: 14px;
+  font-style: italic;
+  font-family: Georgia, serif;
+  margin-bottom: 12px;
+}
+
+.planning-title {
+  color: #14201b;
+  font-family: Georgia, serif;
+  font-size: clamp(35px, 4vw, 53px);
+  font-weight: 500;
+  line-height: 1.12;
+  margin-bottom: 40px;
+}
+
+.planning-title span {
+  color: #f07845;
+  font-style: italic;
+}
+
+/* FEATURE CARDS */
+
+.planning-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.planning-feature-card {
+  min-height: 260px;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planning-feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.planning-feature-card .card-body {
+  padding: 22px 16px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.choice-card {
+  background: #e6e4ff;
+}
+
+.guide-card {
+  background: #ffebd0;
+}
+
+.trip-card {
+  background: #e6e8e9;
+}
+
+.planning-feature-card h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #252525;
+  margin-bottom: 12px;
+}
+
+.planning-feature-card p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #555;
+  min-height: 58px;
+  margin-bottom: 15px;
+}
+
+/* SIMPLE ILLUSTRATIONS */
+
+.feature-illustration {
+  margin-top: auto;
+  height: 95px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.feature-illustration span {
+  font-size: 65px;
+  color: #41413f;
+  font-family: Georgia, serif;
+  opacity: 0.75;
+}
+.feature-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0.9;
+}
+/* RIGHT TRAVEL IMAGE */
+
+.planning-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.planning-image-card {
+  position: relative;
+  height: 430px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #f07845;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.planning-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.planning-slide.active {
+  opacity: 1;
+}
+
+/* DECORATIVE LINE */
+
+.planning-dotted-line {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border: 2px dashed #d9d9d9;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 90px 0 0;
+  top: -25px;
+  left: -55px;
+  transform: rotate(-15deg);
+  z-index: 2;
+}
+
+.planning-dotted-line span {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  font-size: 23px;
+  color: #f07845;
+  transform: rotate(30deg);
+}
+
+/* IMAGE INDICATORS */
+
+.planning-image-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.planning-image-dots button {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: #ccc;
+  padding: 0;
+  cursor: pointer;
+}
+
+.planning-image-dots button.active {
+  background: #f07845;
+  width: 23px;
+  border-radius: 10px;
+}
+
+/* TABLET */
+
+@media (max-width: 991px) {
+  .travel-planning-section {
+    padding: 75px 0;
+  }
+
+  .planning-content {
+    max-width: 100%;
+  }
+
+  .planning-image-wrapper {
+    max-width: 350px;
+    margin-top: 35px;
+  }
+
+  .planning-image-card {
+    height: 420px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 576px) {
+  .travel-planning-section {
+    padding: 55px 0;
+  }
+
+  .planning-title {
+    font-size: 36px;
+    margin-bottom: 28px;
+  }
+
+  .planning-features {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .planning-feature-card {
+    min-height: 230px;
+  }
+
+  .feature-illustration {
+    height: 90px;
+  }
+
+  .planning-image-wrapper {
+    max-width: 280px;
+  }
+
+  .planning-image-card {
+    height: 350px;
+  }
+
+  .planning-dotted-line {
+    left: -20px;
+  }
+}

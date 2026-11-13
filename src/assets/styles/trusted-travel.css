@@ -1,0 +1,144 @@
+/* ================= TRUSTED TRAVEL PARTNER (About) ================= */
+.tt {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(640px, 56vw, 960px);
+  padding: clamp(70px, 7vw, 120px) 0 clamp(80px, 8vw, 140px);
+  background-color: #f7efe6;
+  /* very light paper grid, like the template */
+  background-image:
+    linear-gradient(rgba(60, 40, 20, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 40, 20, 0.018) 1px, transparent 1px);
+  background-size: 42px 42px;
+  isolation: isolate;
+}
+
+/* ---------- Faint line drawings ---------- */
+.tt-decor { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.tt-decor svg path, .tt-decor svg rect, .tt-decor svg circle { stroke: #a99d92; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.tt-balloon { position: absolute; left: 50%; top: 4%; width: clamp(56px, 6.6vw, 110px); opacity: 0.55; animation: tt-bob 6s ease-in-out infinite; }
+.tt-pin { position: absolute; left: 69.5%; top: 25%; width: clamp(14px, 1.8vw, 28px); opacity: 0.5; animation: tt-pulse 3s ease-in-out infinite; }
+.tt-trail { position: absolute; left: 70.5%; top: 9%; width: 330px; height: 110px; opacity: 0.55; }
+.tt-trail svg:first-child path { stroke-dasharray: 3 7; }
+.tt-trail__plane {
+  position: absolute; top: 0; left: 0;
+  offset-path: path("M0 100C60 100 90 20 180 44S290 40 318 14");
+  offset-rotate: auto;
+  animation: tt-fly 9s linear infinite;
+}
+@keyframes tt-fly { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+@keyframes tt-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes tt-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+
+/* ---------- Layout ---------- */
+.tt-inner {
+  position: relative; z-index: 3;
+  display: grid;
+  grid-template-columns: 44% minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+}
+
+/* Heading */
+.tt-heading { grid-column: 1; grid-row: 1; padding-left: 7.8vw; }
+.tt-eyebrow {
+  margin-bottom: 0.7rem;
+  font-family: "Playfair Display", serif; font-style: italic;
+  font-size: clamp(0.85rem, 1vw, 1.05rem); color: #e8591a;
+}
+.tt-heading h2 {
+  max-width: 38vw;
+  font-size: clamp(1.9rem, 3.1vw, 3.4rem); font-weight: 700; line-height: 1.15; color: #151515;
+}
+.tt-heading h2 em { font-style: italic; font-weight: 400; color: #8d867f; }
+
+/* Left photos */
+.tt-photos { grid-column: 1; grid-row: 2; position: relative; margin-top: 1.6vw; height: clamp(320px, 35vw, 620px); }
+.tt-photo {
+  position: absolute; margin: 0; overflow: hidden;
+  border: clamp(3px, 0.3vw, 5px) solid #fff; border-radius: clamp(6px, 0.7vw, 12px);
+  box-shadow: 0 14px 34px rgba(90, 60, 30, 0.18);
+  transition: scale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.tt-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tt-photo:hover { scale: 1.035; }
+.tt-photo--a { left: -2vw;   top: 0.5vw; width: 21.4vw; aspect-ratio: 0.71; rotate: -15deg; z-index: 1; }
+.tt-photo--b { left: 22.5vw; top: 0;     width: 18.4vw; aspect-ratio: 0.79; rotate: -1.5deg; z-index: 2; }
+
+/* Middle text */
+.tt-content { grid-column: 2; grid-row: 2; padding: 2vw 0 0 2vw; max-width: calc(29vw + 2vw); min-width: 320px; }
+.tt-lead { margin-bottom: 1.6rem; font-size: clamp(0.88rem, 1.1vw, 1.15rem); line-height: 1.6; color: #2a2a2a; }
+
+.tt-card {
+  display: flex; align-items: center; gap: 1.3vw;
+  margin-bottom: 1.1vw; padding: 0.9vw 1.4vw 0.9vw 1vw;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 10px;
+  transition: translate 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s, background 0.35s;
+}
+.tt-card:hover { translate: 0 -4px; background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 32px rgba(120, 80, 40, 0.13); }
+.tt-card__icon { flex: 0 0 auto; width: clamp(40px, 4.2vw, 64px); height: auto; transition: transform 0.4s cubic-bezier(0.2, 1.2, 0.3, 1); }
+.tt-card:hover .tt-card__icon { transform: scale(1.12) rotate(-5deg); }
+.tt-card h3 { margin: 0 0 0.35rem; font-family: "Poppins", sans-serif; font-size: clamp(0.95rem, 1.3vw, 1.3rem); font-weight: 700; color: #151515; }
+.tt-card p { margin: 0; font-size: clamp(0.78rem, 0.95vw, 1rem); line-height: 1.55; color: #3a3a3a; }
+.tt-button { margin-top: 1.8vw; }
+
+/* ---------- Right collage ---------- */
+.tt-right {
+  position: absolute; right: -1vw; bottom: 0; z-index: 2;
+  width: 40vw; height: 66%; pointer-events: none;
+}
+.tt-right img { width: 100%; height: 100%; object-fit: contain; object-position: right bottom; display: block; }
+
+.tt-cloud {
+  position: absolute; right: 9vw; bottom: 21%; z-index: 4; width: clamp(80px, 10vw, 170px);
+  pointer-events: none; animation: tt-drift 9s ease-in-out infinite alternate;
+}
+@keyframes tt-drift { to { transform: translateX(-26px); } }
+
+/* ---------- Entrance animations (play once, when the section is seen) ---------- */
+.tt-heading > *, .tt-photo, .tt-content > *, .tt-right, .tt-decor, .tt-cloud { opacity: 0; }
+
+@keyframes tt-rise  { from { opacity: 0; translate: 0 36px; }  to { opacity: 1; translate: 0 0; } }
+@keyframes tt-fade  { from { opacity: 0; }                     to { opacity: 1; } }
+@keyframes tt-in-up { from { opacity: 0; translate: 70px 80px; } to { opacity: 1; translate: 0 0; } }
+@keyframes tt-swing { from { opacity: 0; translate: -90px 50px; rotate: -34deg; } to { opacity: 1; translate: 0 0; rotate: -15deg; } }
+@keyframes tt-drop  { from { opacity: 0; translate: 0 -70px; rotate: 6deg; }      to { opacity: 1; translate: 0 0; rotate: -1.5deg; } }
+
+.tt.is-visible .tt-heading > * { animation: tt-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.tt.is-visible .tt-heading > :nth-child(1) { animation-delay: 0.05s; }
+.tt.is-visible .tt-heading > :nth-child(2) { animation-delay: 0.17s; }
+.tt.is-visible .tt-photo--a { animation: tt-swing 1.1s cubic-bezier(0.2, 0.9, 0.25, 1) 0.3s both, tt-bob 7s ease-in-out 1.6s infinite; }
+.tt.is-visible .tt-photo--b { animation: tt-drop  1s   cubic-bezier(0.2, 0.9, 0.25, 1) 0.5s both, tt-bob 8s ease-in-out 1.7s infinite reverse; }
+.tt.is-visible .tt-content > * { animation: tt-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.tt.is-visible .tt-content > :nth-child(1) { animation-delay: 0.35s; }
+.tt.is-visible .tt-content > :nth-child(2) { animation-delay: 0.47s; }
+.tt.is-visible .tt-content > :nth-child(3) { animation-delay: 0.59s; }
+.tt.is-visible .tt-content > :nth-child(4) { animation-delay: 0.71s; }
+.tt.is-visible .tt-right { animation: tt-in-up 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both; }
+.tt.is-visible .tt-decor { animation: tt-fade 1.4s 0.8s both; }
+.tt.is-visible .tt-cloud { animation: tt-fade 1s 1.3s both, tt-drift 9s ease-in-out 2.3s infinite alternate; }
+
+/* ---------- Tablet and phone ---------- */
+@media (max-width: 991.98px) {
+  .tt { padding: 70px 0 0; }
+  .tt-inner { grid-template-columns: 1fr; grid-template-rows: none; }
+  .tt-heading, .tt-photos, .tt-content { grid-column: 1; grid-row: auto; }
+  .tt-heading { padding: 0 24px; }
+  .tt-heading h2 { max-width: none; font-size: 2rem; }
+  .tt-photos { height: 380px; max-width: 460px; margin: 1.5rem auto 0; width: 100%; }
+  .tt-photo--a { left: 2%;  top: 20px; width: 56%; }
+  .tt-photo--b { left: 48%; top: 0;    width: 48%; }
+  .tt-content { max-width: none; padding: 1.5rem 24px 0; }
+  .tt-card { gap: 14px; padding: 12px 16px 12px 12px; margin-bottom: 14px; }
+  .tt-card__icon { width: 52px; }
+  .tt-button { margin-top: 1.4rem; }
+  .tt-right { position: relative; right: auto; width: 100%; height: 340px; margin-top: 1rem; }
+  .tt-cloud, .tt-trail, .tt-pin { display: none; }
+  .tt-balloon { left: auto; right: 6%; top: 3%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-heading > *, .tt-photo, .tt-content > *, .tt-right, .tt-decor, .tt-cloud { opacity: 1; animation: none !important; }
+  .tt-balloon, .tt-pin, .tt-trail__plane { animation: none; }
+  .tt-photo, .tt-card, .tt-card__icon { transition: none; }
+}

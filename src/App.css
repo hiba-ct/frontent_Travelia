@@ -1,0 +1,6 @@
+
+body {
+  margin: 0;
+  background: #fff;
+  overflow-x: hidden; /* stops sideways scrolling from the floating images */
+}

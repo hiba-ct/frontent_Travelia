@@ -1,0 +1,57 @@
+.wpte-booking-area .wpte-bf-btn, 
+.wte-title-duration .duration,
+input.enquiry-submit, input[type=submit],
+.wpte-button{
+    background:var(--tv-base-c1) !important;
+    color: var(--tv-black)!important;
+}
+.category-trips-single.wpte_new-layout .category-trips-single-inner-wrap .wpte-button-group .wpte-button{
+
+    color: var(--tv-black)!important;
+}
+.wte-title-duration .duration, .wte-title-duration, .nav-tab-wrapper .tab-anchor-wrapper .nav-tab.nav-tab-active, .ui-slider.ui-slider-horizontal .ui-slider-handle{
+    border-color: var(--tv-base-c1) !important;
+}
+.nav-tab-wrapper .tab-anchor-wrapper .nav-tab.nav-tab-active{
+    color: var(--tv-black);
+}
+.nav-tab-wrapper .tab-anchor-wrapper .nav-tab {
+    font-size: 18px;
+    font-weight: 500;
+}
+.wte-related-trips .splide__slide img {
+    height: auto !important;
+}
+
+.ui-slider.ui-slider-horizontal .ui-slider-range{
+    background: var(--tv-base-c1);
+}
+div#wp-travel-trip-wrapper {
+    padding-bottom: 200px;
+}
+.advanced-search-field .filter-section-content .wte-terms-show-btns button{
+    color:var(--tv-base-c2);
+}
+.advanced-search-field .filter-section-content ul li{
+    font-size: 16px;
+    font-size: 500;
+}
+.category-trips-single-inner-wrap .category-available-months li, .category-trips-single-inner-wrap .next-departure-list li, .category-trips-single-inner-wrap .category-trip-aval-time .category-available-months li, .category-trips-single .category-trips-single-inner-wrap .category-available-months li, .category-trips-single .category-trips-single-inner-wrap .next-departure-list li, .category-trips-single .category-trips-single-inner-wrap .category-trip-aval-time .category-available-months li {
+    font-size: 14px !important;
+}
+.wpte-gallery-wrapper__multi-banners {
+    padding-top: 120px;
+}
+.wpte-booking-area .wpte-bf-price-wrap .wpte-bf-price .wpte-bf-pqty {
+    color: rgb(43 38 54);
+    font-weight: 500;
+}
+.category-trips-single.wpte_new-layout .category-trips-single-inner-wrap .category-trip-dates span {
+    font-size: 14px;
+    color: rgb(15 29 35);
+    font-weight: 500;
+}
+.tv-booking-option .option_action input{
+    font-size: 20px;
+    padding: 0;
+}

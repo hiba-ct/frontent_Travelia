@@ -1,0 +1,67 @@
+.arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #111;
+}
+
+/* Yellow pill. A white layer slides in from the left on hover. */
+.arrow-btn__label {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 1.7rem;
+  border-radius: 999px;
+  background: #ffd60a;
+  box-shadow: 0 0 0 rgba(255, 214, 10, 0);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.arrow-btn__label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.arrow-btn__text {
+  position: relative;      /* keeps the text above the sliding layer */
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Round arrow button. It turns yellow and the arrow spins to point right. */
+.arrow-btn__icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #10110f;
+  color: #ffd60a;
+  font-size: 0.8rem;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s, color 0.3s;
+}
+
+.arrow-btn:hover .arrow-btn__label,
+.arrow-btn:focus-visible .arrow-btn__label {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(255, 214, 10, 0.35);
+}
+.arrow-btn:hover .arrow-btn__label::before,
+.arrow-btn:focus-visible .arrow-btn__label::before {
+  transform: translateX(0);
+}
+.arrow-btn:hover .arrow-btn__icon,
+.arrow-btn:focus-visible .arrow-btn__icon {
+  background: #ffd60a;
+  color: #111;
+  transform: rotate(45deg);
+}
+.arrow-btn:active .arrow-btn__label { transform: translateY(0) scale(0.97); }
+.arrow-btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-btn__label, .arrow-btn__label::before, .arrow-btn__icon { transition: none; }
+}

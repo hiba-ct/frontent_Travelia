@@ -1,0 +1,462 @@
+/* =====================================
+   MAIN FOOTER
+===================================== */
+
+.travlia-footer {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  padding: 135px 0 25px;
+  background: #080909;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* =====================================
+   BACKGROUND IMAGE
+===================================== */
+
+.footer-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* Increased opacity so the background image shows clearly */
+  opacity: 0.65; 
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  /* Lighter gradient so it doesn't block the background photo */
+  background: linear-gradient(
+    110deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.78)
+  );
+}
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1470px;
+}
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.footer-main-row {
+  position: relative;
+  z-index: 3;
+}
+
+.footer-links-section {
+  padding-right: 35px;
+}
+
+.footer-right-section {
+  padding-left: 15px;
+}
+
+/* =====================================
+   SECTION HEADINGS
+===================================== */
+
+.footer-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 25px;
+}
+
+.footer-section-heading h3 {
+  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.footer-section-heading span {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.23);
+}
+
+/* =====================================
+   FOOTER LINKS
+===================================== */
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #e7e7e7;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+
+  transition: color 0.3s ease,
+              transform 0.3s ease;
+}
+
+.footer-link i {
+  color: #4169ff;
+  font-size: 15px;
+}
+
+.footer-link:hover {
+  color: #ffd60a;
+  transform: translateX(5px);
+}
+
+/* =====================================
+   SOCIAL MEDIA
+===================================== */
+
+.footer-social-section {
+  margin-bottom: 45px;
+}
+
+.footer-social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 24px;
+  row-gap: 15px;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #e7e7e7;
+  font-size: 17px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+.footer-social-link i {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.footer-social-link:hover {
+  color: #ffd60a;
+}
+
+/* =====================================
+   ADDRESS
+===================================== */
+
+.footer-address-section {
+  margin-top: 0;
+}
+
+.footer-address-section .footer-section-heading {
+  margin-bottom: 23px;
+}
+
+.footer-address-section p {
+  max-width: 390px;
+  color: #e6e6e6;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =====================================
+   LARGE TRAVLIA WATERMARK
+===================================== */
+
+.footer-watermark {
+  position: relative;
+  z-index: 1;
+
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(100px, 17vw, 200px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -7px;
+
+  color: rgba(255, 255, 255, 0.11);
+
+  margin-top: 65px;
+  margin-bottom: 5px;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =====================================
+   BOTTOM FOOTER
+===================================== */
+
+.footer-bottom {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-copyright {
+  color: #929292;
+  font-size: 16px;
+}
+
+.footer-copyright strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* =====================================
+   PAYMENT METHODS
+===================================== */
+
+.footer-payment-methods {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.payment-card {
+  width: 45px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+  background: #fff;
+  color: #173c83;
+
+  font-size: 10px;
+  font-weight: 800;
+  font-style: italic;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.payment-1 {
+  background: #1668b4;
+  color: white;
+}
+
+.payment-2 {
+  color: #f39b17;
+  font-size: 20px;
+}
+
+.payment-3 {
+  color: #111;
+  font-size: 8px;
+}
+
+.payment-4 {
+  color: #222;
+  font-size: 7px;
+}
+
+.payment-5 {
+  color: #1577bc;
+  font-size: 8px;
+}
+
+.payment-6 {
+  color: #17459a;
+  font-size: 12px;
+}
+
+.payment-7 {
+  color: #17854c;
+  font-size: 9px;
+}
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 991px) {
+  .travlia-footer {
+    padding: 90px 0 25px;
+  }
+
+  .footer-links-section {
+    padding-right: 10px;
+  }
+
+  .footer-right-section {
+    padding-left: 5px;
+  }
+
+  .footer-links-grid {
+    gap: 15px;
+  }
+
+  .footer-link {
+    font-size: 15px;
+  }
+
+  .footer-social-grid {
+    grid-template-columns: repeat(2, max-content);
+    gap: 15px;
+  }
+
+  .footer-social-link {
+    font-size: 14px;
+  }
+
+  .footer-watermark {
+    margin-top: 75px;
+  }
+
+  .footer-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 767px) {
+  .travlia-footer {
+    padding: 70px 0 25px;
+  }
+
+  .footer-links-section {
+    padding-right: 0;
+    margin-bottom: 55px;
+  }
+
+  .footer-right-section {
+    padding-left: 0;
+  }
+
+  .footer-section-heading h3 {
+    font-size: 23px;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .footer-link {
+    font-size: 15px;
+  }
+
+  .footer-social-section {
+    margin-bottom: 40px;
+  }
+
+  .footer-social-grid {
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 18px;
+    row-gap: 15px;
+  }
+
+  .footer-social-link {
+    font-size: 14px;
+  }
+
+  .footer-address-section p {
+    font-size: 14px;
+  }
+
+  .footer-watermark {
+    font-size: 20vw;
+    letter-spacing: -3px;
+    margin-top: 65px;
+    margin-bottom: 25px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-copyright {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .footer-payment-methods {
+    justify-content: flex-start;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+  }
+
+  .footer-social-grid {
+    grid-template-columns: repeat(2, max-content);
+    gap: 13px 20px;
+  }
+
+  .footer-watermark {
+    font-size: 19vw;
+  }
+
+  .payment-card {
+    width: 39px;
+    height: 27px;
+  }
+}
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-link,
+  .footer-social-link {
+    transition: none;
+  }
+}

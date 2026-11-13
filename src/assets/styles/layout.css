@@ -1,0 +1,159 @@
+/* =====================================
+   PAGE HERO BANNER (Professional Template Style)
+===================================== */
+
+.page-hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, #ac8f75 0%, #ec4a05 100%);
+  padding: 130px 0 90px;
+  overflow: hidden;
+  border-bottom: 1px solid #f0d4be;
+}
+
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  font-size: 160px;
+  font-weight: 900;
+  letter-spacing: 25px;
+  color: rgba(237, 117, 70, 0.475);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.hero-dynamic-title {
+  font-family: Georgia, serif;
+  font-size: 46px;
+  font-weight: 700;
+  color: hwb(0 4% 96%);
+  margin-bottom: 20px;
+}
+
+.hero-breadcrumb-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f2dec9;
+}
+
+.hero-breadcrumb-pill a:hover {
+  color: #ed7546;
+}
+
+.page-hero-illustration {
+  max-height: 1000px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+margin-bottom: -90px;
+
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.08));
+}
+
+.page-hero-airplane {
+  position: absolute;
+  top: -75px;
+  right: 12%;
+  width: 290px;
+  animation: floatAirplane 4s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes floatAirplane {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+@media (max-width: 991px) {
+  .page-hero-banner {
+    padding: 90px 0 60px;
+    text-align: center;
+  }
+  .hero-dynamic-title {
+    font-size: 32px;
+  }
+  .hero-watermark {
+    font-size: 90px;
+    letter-spacing: 10px;
+  }
+  .page-hero-airplane {
+    display: none;
+  }
+  .page-hero-illustration {
+    max-height: 240px;
+    margin-top: 25px;
+  }
+  .hero-breadcrumb-pill {
+    justify-content: center;
+  }
+}
+
+/* =====================================
+   TOUR & DESTINATION CARDS
+===================================== */
+
+.view-tour-btn:hover {
+  background: #ffd60a !important;
+  border-color: #ffd60a !important;
+}
+
+.destination-pill {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: #ffffff;
+  color: #171717;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.destination-card:hover .destination-pill {
+  background: #ed7546;
+  color: #ffffff;
+}
+
+/* =====================================
+   FOOTER STYLES
+===================================== */
+
+.travlia-footer {
+  background: #0d1117;
+}
+
+.footer-cta-strip {
+  background: #1c252c;
+  padding: 40px 0;
+}
+
+.footer-stats-box {
+  background: #161b22;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #ffd60a;
+}

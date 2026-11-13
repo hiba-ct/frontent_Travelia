@@ -1,0 +1,136 @@
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 130px;
+  background: #fff;
+}
+
+/* Soft clouds (drift slowly) */
+.t-clouds {
+  position: absolute;
+  inset: 0 -40px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 26% at 12% 30%, rgba(176, 200, 226, 0.55), transparent 70%),
+    radial-gradient(ellipse 30% 16% at 42% 10%, rgba(200, 218, 236, 0.5), transparent 70%),
+    radial-gradient(ellipse 26% 30% at 98% 6%, rgba(150, 160, 175, 0.55), transparent 70%);
+  animation: sky-drift 24s ease-in-out infinite alternate;
+}
+@keyframes sky-drift { to { transform: translateX(32px); } }
+
+/* Natural palm tree photo: leans in from the right, behind the text.
+   It stays hidden until the section is seen, then slides in from the RIGHT, then sways. */
+.t-palm {
+  position: absolute;
+  top: -10px;
+  right: -20%;
+  width: clamp(300px, 44vw, 700px);
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  transform: rotate(-38deg);
+  opacity: 0;
+  translate: 70vw 0;            /* start position: far to the right */
+}
+.testimonials.is-visible .t-palm {
+  animation:
+    palm-enter 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    palm-sway 7s ease-in-out 1.8s infinite;
+}
+@keyframes palm-enter {
+  from { opacity: 0; translate: 70vw 0; }
+  to   { opacity: 1; translate: 0 0; }
+}
+@keyframes palm-sway {
+  0%, 100% { transform: rotate(-39.5deg); }
+  50%      { transform: rotate(-36.5deg); }
+}
+
+.t-container { position: relative; z-index: 2; }
+
+.t-eyebrow {
+  margin-bottom: 0.4rem;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #d9531e;
+}
+.t-heading h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  color: #111;
+}
+
+.t-slider { position: relative; margin-top: 3rem; padding-right: 72px; }
+
+/* Clover-shaped portrait */
+.t-photo {
+  display: block;
+  width: 258px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  clip-path: url(#clover-clip);
+  animation: photo-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.t-slide { animation: slide-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes slide-in { from { opacity: 0; translate: 28px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes photo-in { from { opacity: 0; scale: 0.9; rotate: -6deg; } to { opacity: 1; scale: 1; rotate: 0deg; } }
+
+.t-stars i { margin-right: 4px; font-size: 1rem; color: #d9531e; }
+.t-quote { max-width: 640px; margin: 0.9rem 0 1.4rem; font-size: 1.05rem; line-height: 1.7; color: #1d1d1d; }
+.t-name { margin: 0; font-size: 1.1rem; font-weight: 700; color: #111; }
+.t-role { margin: 0.1rem 0 0; font-size: 0.8rem; color: #666; }
+
+/* Two tall arrow buttons, stacked */
+.t-nav {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  width: 42px;
+  overflow: hidden;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+}
+.t-nav button {
+  height: 122px;
+  border: 0;
+  background: #fff;
+  color: #111;
+  transition: background 0.25s, color 0.25s;
+}
+/* Resting state: "previous" is black. On hover, the hovered button turns black. */
+.t-nav:not(:hover) button:first-child { background: #111; color: #fff; }
+.t-nav button:hover { background: #111; color: #fff; }
+.t-nav button:active { background: #c4521c; color: #fff; }
+.t-nav button:focus-visible { outline: 2px solid #ffd60a; outline-offset: -2px; }
+
+/* Small yellow triangle in the bottom-right corner */
+.t-triangle {
+  position: absolute;
+  right: 18px;
+  bottom: 0;
+  width: 30px;
+  height: 26px;
+  background: #ffd60a;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  animation: tri-bob 3s ease-in-out infinite;
+}
+@keyframes tri-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+@media (max-width: 767.98px) {
+  .testimonials { padding: 80px 0 100px; }
+  .t-slider { padding-right: 0; }
+  .t-photo { margin: 0 auto; }
+  .t-nav { position: static; transform: none; flex-direction: row; width: auto; margin-top: 1.5rem; }
+  .t-nav button { height: 44px; width: 64px; }
+  .t-palm { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-clouds, .t-palm, .t-triangle, .t-slide, .t-photo { animation: none !important; }
+  .t-palm { opacity: 1; translate: 0 0; }
+}
